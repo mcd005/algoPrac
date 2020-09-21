@@ -6,7 +6,7 @@ For my benefit the solutions have been sorted into different categories of probl
 Each solution should have in it's comments:
   
 * A link to the problem
-* An explanation of the alogrithm I implemented
+* An explanation of the algorithm I implemented
 * Analysis of time and space complexity of the algorithm
   
 Often solutions will contain multiple versions/iterations as I considered more optimal approaches.
