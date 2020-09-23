@@ -1,3 +1,4 @@
 .idea
 *.txt
-/Exclude
+candies.cpp
+/Graphs
