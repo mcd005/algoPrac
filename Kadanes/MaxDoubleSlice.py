@@ -1,4 +1,6 @@
 '''
+~~~Not yet finished~~~
+
 A double slice is basically all the numbers from X+1 to Z-1, excluding Y
 The smallest value X can take is 0 and the largest value Z can take is N - 1
 So maybe run Kadanes on range(1,N - 1) and exclude the smallest value, which would be the element at index Y
