@@ -1,6 +1,7 @@
 .idea
 *.txt
-candies.cpp
 /Graphs
-almostTetris.py
+/Exclude
 
+candies.cpp
+numPairsSumPowTwo.py

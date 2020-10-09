@@ -34,6 +34,8 @@
 # and iterating through an n*m board
 # where the recursive function calls could be made on all nm elements before a base case is reached (in worst case)
 
+
+# ~~~~Iteratrive BFS Solution~~~~
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -99,56 +101,53 @@ class Solution:
                             
         return output
 
-#
-# class TrieNode:
-#     def __init__(self):
-#         self.children = {}
-#         self.isComplete = False
-#
-#
-# def addToTrie(word, node):
-#     for char in word:
-#         if char not in node.children:
-#             node.children[char] = TrieNode()
-#         node = node.children[char]
-#     node.isComplete = True
-#
-#
-# def dfs(board, node, i, j, path, otpt):
-#     if node.isComplete:
-#         otpt.append(path)
-#         node.isComplete = False
-#     if not (0 <= i < len(board)) or not (0 <= j < len(board[0])):
-#         return
-#     temp = board[i][j]
-#     node = node.children.get(temp)
-#     if not node:
-#         return
-#     board[i][j] = "#"
-#     dfs(board, node, i + 1, j, path + temp, otpt)
-#     dfs(board, node, i, j + 1, path + temp, otpt)
-#     dfs(board, node, i - 1, j, path + temp, otpt)
-#     dfs(board, node, i, j - 1, path + temp, otpt)
-#     board[i][j] = temp
-#
-#
-# class Solution:
-#     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-#         root = TrieNode()
-#         for word in words:
-#             addToTrie(word, root)
-#
-#         output = []
-#         for row in range(len(board)):
-#             for col in range(len(board[0])):
-#                 dfs(board, root, row, col, "", output)
-#
-#         return output
+# ~~~~Recursive DFS solution~~~~
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.isComplete = False
 
+def addToTrie(word, node):
+    for char in word:
+        if char not in node.children:
+            node.children[char] = TrieNode()
+        node = node.children[char]
+    node.isComplete = True
+
+def dfs(board, node, i, j, path, otpt):
+    if node.isComplete:
+        otpt.append(path)
+        node.isComplete = False
+    if not (0 <= i < len(board)) or not (0 <= j < len(board[0])):
+        return
+    temp = board[i][j]
+    node = node.children.get(temp)
+    if not node:
+        return
+    board[i][j] = "#"
+    dfs(board, node, i + 1, j, path + temp, otpt)
+    dfs(board, node, i, j + 1, path + temp, otpt)
+    dfs(board, node, i - 1, j, path + temp, otpt)
+    dfs(board, node, i, j - 1, path + temp, otpt)
+    board[i][j] = temp
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        root = TrieNode()
+        for word in words:
+            addToTrie(word, root)
 
+        output = []
+        for row in range(len(board)):
+            for col in range(len(board[0])):
+                dfs(board, root, row, col, "", output)
+
+        return output
+
+
+# ~~~~Solution that uses a hashmap for a trie~~~~
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         # build a trie using hashtable
         word_key = '$'
         trie = {}
@@ -186,6 +185,8 @@ class Solution:
                     backtrack(r, c, trie)
         return matchWords
 
+
+# ~~~~Second soution that uses hashmap for trie and then recursive DFS similar to the second solution~~~~
 def findWords(self, board, words):
     # make trie
     trie = {}
