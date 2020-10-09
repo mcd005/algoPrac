@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/word-search-ii
 
+
 # Create a Trie and add all the words to it
 # Walk through the array
 # For each letter we need three queues:
