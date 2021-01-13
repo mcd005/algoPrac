@@ -21,7 +21,7 @@
 # There is a way this can be done with one pass, using constant memory
 # It requires treating slices of the student ratings as sequences of ascending or descending sequences
 # And the total candy given in that sequence is equal to the sum of the arithmetic progression for the sequence
-# However I had toruble implementing this based on intersecting ascending and descending sequences
+# However I had trouble implementing this based on intersecting ascending and descending sequences
 # e.g. with the algorith below 1 6 10 8 7 3 2 -> 1 2 3 4 3 2 1
 #                             when it should be  1 2 5 4 3 2 1
 

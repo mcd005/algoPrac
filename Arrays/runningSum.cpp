@@ -2,6 +2,9 @@
 https://leetcode.com/problems/running-sum-of-1d-array/
 
 Easiest question on leetcode, just make sure you don't fail on an edge case
+
+Time complexity     O(n)
+Space complexity    O(1)
 */
 
 class Solution {

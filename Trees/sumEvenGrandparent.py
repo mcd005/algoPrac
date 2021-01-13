@@ -2,7 +2,7 @@
 https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/
 
 Version 2
-Do a level order traversal bu instead the q contains sublists of (current node val, parent node val, grandparent node val)
+Do a level order traversal but instead the q contains sublists of (current node val, parent node val, grandparent node val)
 Then when each node in the q is encountered you can check the value of its grandparent
 
 This solutions is quicker than v1 and appears not to require too much more memory

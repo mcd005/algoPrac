@@ -1,7 +1,7 @@
 '''
 Problem description: https://app.codility.com/programmers/lessons/15-caterpillar_method/count_distinct_slices/
 
-Caterpillar method
+Caterpillar/sliding window method
 
 Have the forward pointer advance until the end of the array or until a non-distinct integer has been encountered.
 

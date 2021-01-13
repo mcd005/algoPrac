@@ -23,8 +23,9 @@ A recursive function below which basically says:
     then p must be the LCA of both.
 
 Time complexity         O(n)
-Space complexity        O(n)  in the worst case (degnerate linked list) but O(log n) on average 
-                              since we only have recursive functions for one half of the tree on the callstack 
+Space complexity        O(n) 
+in the worst case (degnerate linked list) but O(log n) on average 
+since we only have recursive functions for one half of the tree on the callstack 
 */
 
 

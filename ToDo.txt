@@ -1,0 +1,48 @@
+To Complete
+	Count triangles
+	Contiguous array
+	Flags
+	Max Double Slice Sum
+	Candy (with arithmetic progression technique)
+	DFS islands hackerrank maxRegion
+	numPairsSumPowTwo
+	closeStrings
+	Permute
+	reachingPoints
+	MinAvgSlice
+	Number of Disc intersections
+	backspaceCompares
+
+To Explain
+	Decode ways
+	Balanced String Split
+	Subtract Product and Sum
+	Get decimal value
+	find numbers with even number of digits
+	Number of steps
+	Count Negatives
+	Jumpoing on clouds
+	NumberSolitaire
+	GRoup the people
+	Find words (but the hashmap one with backtracking)
+	Roman to Int
+	Display Table
+
+
+To grab from Hackerank
+	2D array DS
+	Arrays left rotation
+	Hash Tables: Ransom Note
+	Two Strings
+	Marks and Toys
+	Making anagrams
+	Sherlock and the valid strings
+	Min Abs difference
+	Luck balance
+	Ice Cream Parlor
+	Sock Merchant
+	Counting Valleys
+	Repeated Strings
+
+
+	

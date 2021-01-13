@@ -36,7 +36,7 @@ class Solution:
                 
         return output 
         
-# Slower alternative but smarter pattern spotting. 
+# Slower (in terms of ms not necessarlity Time complexity) alternative but smarter pattern spotting. 
 # Recognises that any time a smaller value precedes a larger one then it must be subtracting
 class Solution:
     def romanToInt(self, s):

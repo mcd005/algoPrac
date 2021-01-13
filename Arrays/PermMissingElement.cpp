@@ -1,9 +1,12 @@
-// you can use includes, for example:
-// #include <algorithm>
+/* 
+https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
 
-// you can write to stdout for debugging purposes, e.g.
-// cout << "this is a debug message" << endl;
+Time complexity     O(n)
+Space complexity    O(1) 
+*/
 
+// Version 1 - Sum the array and compare it the sum of the first n integers
+// The difference is the missing int
 int solution(vector<int> &A) {
     unsigned long long int sum = 0;
     unsigned long long int N = A.size();
@@ -15,7 +18,7 @@ int solution(vector<int> &A) {
     return (((N+1)*(N+2))/2) - sum;
 }
 
-/* XOR solution (probably much more optimal)
+// XOR solution (probably much more optimal)
 int solution(vector<int> &A) {
     int N = A.size();
     int xor_sum = 0;
@@ -25,4 +28,4 @@ int solution(vector<int> &A) {
     }
     
     return xor_sum^(N + 1);
-}*/
+}

@@ -1,3 +1,19 @@
+/*
+https://leetcode.com/problems/add-two-numbers/
+
+This is basically a software implementation of a Ripple Carry Adder (Turing Completeness in action?)
+Each digit is summed bitwise
+    If it is greater than 10 it produces a carry
+    If a digit has a carry in, it adds it to it sum. This may propagate the carry.
+Either way if there are more digits to summed or the last digits produced a carry:
+    Another node in the linked list will be created
+    It's value will be set to the sum + Cin of the current digits
+    It will be connected to the tail of the linked list that we have so far
+
+Time complexity         O(n) where n is the length of the longer of the two input linked lists
+Space complexity        O(n + 1)
+*/
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -11,21 +27,6 @@
 
 class Solution {
 public:
-    /*
-    https://leetcode.com/problems/add-two-numbers/
-
-    This is basically a software implementation of a Ripple Carry Adder (Turing Completeness in action?)
-    Each digit is summed bitwise
-        If it is greater than 10 it produces a carry
-        If a digit has a carry in, it adds it to it sum. This may propagate the carry.
-    Either way if there are more digits to summed or the last digits produced a carry:
-        Another node in the linked list will be created
-        It's value will be set to the sum + Cin of the current digits
-        It will be connected to the tail of the linked list that we have so far
-
-    Time complexity         O(n) where n is the length of the longer of the two input linked lists
-    Space complexity        O(n + 1)
-    */
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         //The pointer to the linked list to be returned
         ListNode* output = NULL;

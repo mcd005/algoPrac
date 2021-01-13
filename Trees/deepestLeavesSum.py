@@ -22,13 +22,12 @@ class Solution:
             pre, queue = queue , [child for node in queue for child in [node.left, node.right] if child]
         return sum(leaf.val for leaf in pre)
 
-'''
+
 #Depth first search
 #Keep track of depth
 #If depth less than max, no need to add to sum
 #If depth equal max depth add to sum
 #If depth greater than max set sum to that value
-
 #Return sum
 
 class Solution:
@@ -50,4 +49,3 @@ def traverse(Node, depth, sum, maxDepth):
         #print(Node.val, depth)
         depth -= 1
     return sum
-'''

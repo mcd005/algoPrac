@@ -1,12 +1,9 @@
-'''
-https://leetcode.com/problems/binary-tree-postorder-traversal/
+# https://leetcode.com/problems/binary-tree-postorder-traversal/
 
-Classic recursive postOrder traversal
+# Classic recursive postOrder traversal
 
-Time complexity		O(n)		number of recursive calls until base
-Space complexity	O(log n)	height of the tree
-'''
-
+# Time complexity		O(n)		number of recursive calls until base
+# Space complexity	O(log n)	height of the tree
 
 # Definition for a binary tree node.
 # class TreeNode:

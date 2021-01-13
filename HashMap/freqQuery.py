@@ -1,3 +1,9 @@
+# https://www.hackerrank.com/challenges/frequency-queries/problem
+
+# Standard HashMap problem
+
+# Time complexity         O(n)
+# Space complexity        O(n)
 
 import math
 import os
@@ -6,7 +12,6 @@ import re
 import sys
 from collections import Counter
 
-# Complete the freqQuery function below.
 def freqQuery(queries):
     operation3Results =[]
     freq = Counter()

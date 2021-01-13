@@ -1,15 +1,4 @@
 /*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* left;
-    Node* right;
-    Node* parent;
-};
-*/
-
-/*
 If the node has a right child, then traverse the left branch of the descendants of that child until you reach a leaf. That leaf is the IOS.
 If the node has no right branch and but has an ancestor that is bigger then it, that ancestor is the IOS.
 If the node has no right branch and all the ancestor including the root are is smaller then there is no IOS.
@@ -19,11 +8,21 @@ Rather than asking "Is the parent bigger than the current node?"
 you'd ask "Is the pointer to the left child of the parent equal to the pointer to the current node?"
 
 Time complexity		O(n)	Average case logn. 
-				You either have to find the deepest leaf, 
-				or go from the deepest leaf to the root.
+				            You either have to find the deepest leaf, 
+				            or go from the deepest leaf to the root.
 Space complexity 	O(1)
 */
 
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* parent;
+};
+*/
 class Solution {
 public:
     Node* inorderSuccessor(Node* node) {

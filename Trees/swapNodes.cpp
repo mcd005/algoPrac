@@ -25,7 +25,6 @@ struct TreeNode {
 };
 
 TreeNode* convertToTree(vector<vector<int>> idxs) {
-    cout << "Yeet" << endl;
     TreeNode* root = new TreeNode(1);
 
     queue<TreeNode*> q;

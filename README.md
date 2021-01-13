@@ -1,7 +1,8 @@
 # algoPrac
+
 My solutions to Leetcode, Codility and HackerRank algorithmic problems.
 
-For my benefit the solutions have been sorted into different categories of problems.
+For my benefit, the solutions have been sorted into different categories of problems.
 
 Each solution should have in it's comments:
   

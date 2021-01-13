@@ -1,9 +1,12 @@
-// you can use includes, for example:
-// #include <algorithm>
-#include <math.h>
+/* 
+https://app.codility.com/programmers/lessons/3-time_complexity/frog_jmp/
 
-// you can write to stdout for debugging purposes, e.g.
-// cout << "this is a debug message" << endl;
+Fairly trivial maths with some casting thrown in
+
+Time compelxity     O(1)
+Space complexity    O(1)
+ */
+#include <math.h>
 
 int solution(int X, int Y, int D) {
 	//Need a double, float not precise enough.

@@ -1,4 +1,6 @@
 '''
+Not yet complete
+
 Establish where the peaks are
 Choosing to take less flags than peaks sets an upper limit on the number of flags that can be set
 

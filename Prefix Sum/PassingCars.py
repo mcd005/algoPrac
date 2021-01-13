@@ -1,13 +1,13 @@
-#https://app.codility.com/programmers/lessons/5-prefix_sums/passing_cars/
-#Sum all the ones in the array
-#Then walk through the array
+# https://app.codility.com/programmers/lessons/5-prefix_sums/passing_cars/
+# Sum all the ones in the array
+# Then walk through the array
     #When a 1 is encountered decremet the sum
     #When zero is encountered add the sum to the result
     #Check each iteration if result exceeds max cars
-#Return result at the end of the loop
+# Return result at the end of the loop
 
-#Time complexity:   O(N)
-#Space complexity:  O(1)
+# Time complexity:   O(N)
+# Space complexity:  O(1)
 
 def solution(A):
     passing = 0

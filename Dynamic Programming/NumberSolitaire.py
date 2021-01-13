@@ -11,7 +11,7 @@ For the game to finish, the pebble has to land on the N-1 square. So the sub-pro
 However the maximal score in the 6 preceding squares is based on the maximal score in the 6 squares preceding each of those squares. And so on.
 
 So we use a bottom up approach. The smallest sub-problem is "What is the maximal score of the first square?" which is simply the value of the first square.
-From there we can ask "What is the maximum score amongst the previous (up to 6) squares?" and there is no need to solve any sub-problems. Just check the vlau
+From there we can ask "What is the maximum score amongst the previous (up to 6) squares?" and there is no need to solve any sub-problems. Just check the value
 
 Time complexity         O(n)    
 

@@ -10,7 +10,7 @@ From here we make
 For 2 we are basically saying "Point to nothing unless you are told otherwise"
 The node is told otherwise when it has a predecessor which says "ok now point to me" (i.e. 1)
 This means all the nodes will point to their predecssor, except for the last node, which will point to NULL
-Thus the list is 
+Thus the list is reversed
 
 Time complexity		O(n) 	called n times before reaching base case
 Space complexity	O(n)	recursion depth

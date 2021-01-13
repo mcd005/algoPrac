@@ -1,3 +1,4 @@
+// See .py for solution
 int solution(vector<int> &A) {
     int N = A.size();
     int result[N] = {};

@@ -1,3 +1,4 @@
+# https://app.codility.com/programmers/lessons/4-counting_elements/max_counters/
 
 #Iterate through A
 #Apply increase as instructed
@@ -6,7 +7,7 @@
 #When max counter oepration is applied, update the baseline
 #Lazy write policy: if a value to be increased is below the baseline, then it has yet to be written to. 
 #   Update its value with the correct baseline
-#Lazy write cont: Iterate through all the results at the end updating correct baseline
+#   Then iterate through all the results at the end updating correct baseline
 
 #Time O(N + M)
 #Space O(N)

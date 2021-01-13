@@ -1,4 +1,4 @@
-#This wasn't great  because I went through the whole matrix when i didn't need to(??)
+# See .cpp for explanation
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
         count = 0 

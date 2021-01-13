@@ -1,4 +1,6 @@
 '''
+https://app.codility.com/programmers/lessons/8-leader/equi_leader/
+
 Is it correct to say that the the leader in each subarray divided by the equileader is equal to the leader for the whole array?
     Yes
     

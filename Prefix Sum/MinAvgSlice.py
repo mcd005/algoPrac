@@ -1,11 +1,13 @@
-#Naive would be to try all possible subarrays, however time complexity would be O(N^2)
-#Could try Kadanes
+# Not yet complete
 
-#Starting with slice 01
-#Work out it's value
-#Then ask if the neighbouring slice is
+# Naive would be to try all possible subarrays, however time complexity would be O(N^2)
+# Could try Kadanes
 
-#Does minimal mean th value closest to zero? Because Python min is value closest to negative inf
+# Starting with slice 01
+# Work out it's value
+# Then ask if the neighbouring slice is
+
+# Does minimal mean th value closest to zero? Because Python min is value closest to negative inf
 
 import random
 

@@ -1,3 +1,11 @@
+/* 
+https://leetcode.com/problems/lru-cache/
+
+TDB
+    More implementations
+    Explantion
+    Complexity analysis
+ */
 class LRUCache {
 public:
     int maxSize, time = 0;

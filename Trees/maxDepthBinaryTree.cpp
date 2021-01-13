@@ -1,20 +1,24 @@
 /*
 https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/
 
-First solution is recursive and is kind of like asking: "How deep is the left branch? Is that deeper than the right branch?"
+Version 1 - iterative
+Level order traversal, 
+Keeping track of the levels by saving the size of the queue holding the nodes at each level
+
+Time complexity 	O(n)
+Space complexity	O(n)
+
+Version 2 - Recursive
+This is kind of like asking: "How deep is the left branch? Is that deeper than the right branch?"
 This continues until a base case of a null node
 
 Time complexity 	O(n)  	have to traverse all the nodes
 Space complexity	O(n)	in the worse case (degenerated linked list) there will be n recursive function calls on the stack
-
-Second is iterative. Level order traversal, keeping track of the levels by saving the size of the queue holding the nodes at each level
-
-Time complexity 	O(n)
-Space complexity	O(n)
 */
 
 #include <bits/stdc++.h>
 
+// Version 2
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
@@ -25,6 +29,7 @@ public:
     }
 };
 
+// Version 1
 class Solution {
 public:
     int maxDepth(TreeNode* root) {

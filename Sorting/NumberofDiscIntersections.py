@@ -1,4 +1,6 @@
 '''
+Not yet complete
+
 Sort from largest to smallest radius
 Walk through and for each check its radius plus minus its index
 Then from that point walk trhough and check all subsquent points that match

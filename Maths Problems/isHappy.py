@@ -1,13 +1,13 @@
 # https://leetcode.com/problems/happy-number/
 #
-# We know a number will loop cause an endless loopp if, after some number of iterations
+# We know a number will loop cause an endless loop if, after some number of iterations
 # it produces a number that has already been produced.
 #
 # So we use a HashMap seen to keep track of these
 # Other than that we implement the logic as described by the question
 #
-# Time complexity         Upper boudn
-# Space complexity        O(1)
+# Time complexity         ???
+# Space complexity        ???
 
 def squareDigits(num):
     out = 0

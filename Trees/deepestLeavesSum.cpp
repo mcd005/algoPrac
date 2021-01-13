@@ -1,15 +1,5 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
 /*
-An emulation of the list comprehension methodn used in my python solution
+An emulation of the list comprehension method used in my python solution
 
 Starting with the a queue that just has the root in it
 Use n to keep track of all the nodes at that level
@@ -22,6 +12,16 @@ Hence the deepest leaves sum is returned
 Time complexity 	O(n)
 Space complexity	O(log n)
 */
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 
 class Solution {
 public:

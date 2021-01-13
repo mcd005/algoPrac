@@ -1,9 +1,5 @@
-// you can use includes, for example:
-// #include <algorithm>
+// See BITWISEXOR .cpp for a better solution
 #include <map>
-
-// you can write to stdout for debugging purposes, e.g.
-// cout << "this is a debug message" << endl;
 
 int solution(vector<int> &A) {
     map<int,int> occurences;

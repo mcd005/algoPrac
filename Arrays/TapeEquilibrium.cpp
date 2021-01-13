@@ -1,10 +1,16 @@
-// you can use includes, for example:
-// #include <algorithm>
+/* 
+https://app.codility.com/programmers/lessons/3-time_complexity/tape_equilibrium/
+
+Sum all of the elements but the first: this is the right half of the array
+The left half is the first element
+Iterate through the array and for each value subtract the element from right and add it to left
+Keep track of the min difference between the two halves and return it at the end
+
+Time complexity     O(n)
+Space complexity    O(1)
+ */
 #include <math.h>
 #include <numeric>
-
-// you can write to stdout for debugging purposes, e.g.
-// cout << "this is a debug message" << endl;
 
 int solution(vector<int> &A) {
     int left = A[0];

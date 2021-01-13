@@ -6,12 +6,12 @@ One to keep track of what the view of the skyline would look like from the top o
 One to keep track of what the view of the skyline would look like from the left or right
 
 Iterate through the array and see what are the highest buidlings for either perspective
-Then iterate through the array again and se how much you can increase the height of the other buidlings by
+Then iterate through the array again and see how much you can increase the height of the other buildings by
 Return the total height increase of the buidling
 
 The C++ solution implements this in a much neater way using max
 
-Time complexity         O(n*m) where n and m are the side lengths
+Time complexity         O(n * m) where n and m are the side lengths
 Space complxeity        O(n + m)
 '''
 

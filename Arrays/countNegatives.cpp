@@ -1,3 +1,12 @@
+// https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/
+
+//Version 1
+//Starts on the top row, rightmost column and moves left.
+//Increments ans on each negative it encounters
+//Once it finds a positive number,  it skips to the next row
+
+//Time complexity   O(n * m)
+//Space complexity  O(1)
 class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid) {
@@ -18,6 +27,9 @@ public:
     }
 };
 
+//Version 2
+//Starts on the top row, rightmost column and moves left.
+//Once it finds a positive number, records number of negatives seen (ans+=) and moves down a row to start again
 class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid) {
@@ -25,12 +37,14 @@ public:
         int ans = 0;
         while (r < m) {
             while (c >= 0 && grid[r][c] < 0) c--;
-            ans += n - c - 1;
+            //When it encounters the end of the row 
+            //or postive number 
+            //it adds the all the negative numbers it has seen in the row so far to ans
+            ans += n - c - 1; 
             r++;
         }
         return ans;
     }
 };
 
-//Starts on the top row, rightmost column and moves left.
-//Once it finds a positive number, records number of negatives seen (ans+=) and moves down a row to start again
+

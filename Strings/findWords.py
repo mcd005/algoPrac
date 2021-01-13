@@ -62,46 +62,6 @@ def addToTrie(word, node, num):
 #         print(node.children, node.val)
 #         node = node.children[char]
 
-# Helper function to return tuples which are the coords of the neighbours of a letter
-def neighbours(r, c, maxR, maxC):
-    return [tup for tup in [(r, c + 1), (r - 1, c), (r, c - 1), (r + 1, c)] if (0 <= tup[0] < maxR) and (0 <= tup[1] < maxC)]
-    
-class Solution:
-    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        output = []
-        if not board or not words:
-            return output
-        
-        root = TrieNode()
-        for wordNum, word in enumerate(words):
-            addToTrie(word, root, wordNum)
-        
-        rows = len(board)
-        cols = len(board[0])
-        
-        for row in range(rows):
-            for col in range(cols):
-                letter = board[row][col]
-                if letter in root.children:
-                    nodeQ = [root.children[letter]]
-                    coordQ = [(row, col)]
-                    usedQ = [{(row, col)}]
-                    while nodeQ:
-                        curNode = nodeQ.pop(0)
-                        curCoord = coordQ.pop(0)
-                        curUsed = usedQ.pop(0)
-                        for nb in neighbours(curCoord[0],curCoord[1], rows, cols):
-                            if (nb[0], nb[1]) not in curUsed and board[nb[0]][nb[1]] in curNode.children:
-                                    nodeQ.append(curNode.children[board[nb[0]][nb[1]]])
-                                    coordQ.append((nb[0], nb[1]))
-                                    nextUsed = curUsed | {(nb[0], nb[1])}
-                                    usedQ.append(nextUsed)
-                        if curNode.val != None:
-                            output.append(words[curNode.val])
-                            curNode.val = None
-                            
-        return output
-
 # ~~~~Recursive DFS solution~~~~
 class TrieNode:
     def __init__(self):
@@ -219,5 +179,44 @@ def find(self, board, i, j, trie, pre):
         self.find(board, i, j - 1, trie[board[i][j]], pre + board[i][j])
         self.used[i][j] = False
 
+# Helper function to return tuples which are the coords of the neighbours of a letter
+def neighbours(r, c, maxR, maxC):
+    return [tup for tup in [(r, c + 1), (r - 1, c), (r, c - 1), (r + 1, c)] if (0 <= tup[0] < maxR) and (0 <= tup[1] < maxC)]
+    
+class Solution:
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        output = []
+        if not board or not words:
+            return output
+        
+        root = TrieNode()
+        for wordNum, word in enumerate(words):
+            addToTrie(word, root, wordNum)
+        
+        rows = len(board)
+        cols = len(board[0])
+        
+        for row in range(rows):
+            for col in range(cols):
+                letter = board[row][col]
+                if letter in root.children:
+                    nodeQ = [root.children[letter]]
+                    coordQ = [(row, col)]
+                    usedQ = [{(row, col)}]
+                    while nodeQ:
+                        curNode = nodeQ.pop(0)
+                        curCoord = coordQ.pop(0)
+                        curUsed = usedQ.pop(0)
+                        for nb in neighbours(curCoord[0],curCoord[1], rows, cols):
+                            if (nb[0], nb[1]) not in curUsed and board[nb[0]][nb[1]] in curNode.children:
+                                    nodeQ.append(curNode.children[board[nb[0]][nb[1]]])
+                                    coordQ.append((nb[0], nb[1]))
+                                    nextUsed = curUsed | {(nb[0], nb[1])}
+                                    usedQ.append(nextUsed)
+                        if curNode.val != None:
+                            output.append(words[curNode.val])
+                            curNode.val = None
+                            
+        return output
 
 

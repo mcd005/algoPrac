@@ -1,8 +1,15 @@
 .idea
+.vscode/
 *.txt
+!ToDo.txt
 /Graphs
 /Exclude
 
+#DP
+cashRegister.java
 candies.cpp
+
+#Maths
+reachingPoints.cpp
 numPairsSumPowTwo.py
 permute.cpp

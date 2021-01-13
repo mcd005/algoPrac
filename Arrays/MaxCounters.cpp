@@ -1,3 +1,5 @@
+// See .py for solution
+
 using namespace std;
 
 vector<int> solution(int N, vector<int> &A) {

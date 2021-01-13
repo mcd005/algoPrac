@@ -8,7 +8,7 @@ As we iterate through the input array, the question we are asking is:
 However knowing the answer to this question requires asking the same question of the elements before it
 
 So we use a bottom up, tabluarisation approach. We declare an array dp to store solutions to subproblems
-dp[0] and dp[1] are the bases cases because the answer to the above quesiton for these are trivial:
+dp[0] and dp[1] are the base cases because the answer to the above quesiton for these are trivial:
 
 dp[0] - There are no elements before it so it maximum value is the value of dp[0]
 dp[1] - Only dp[0] is the element before dp[1] and these can't be legally added together. so dp[1] = max(dp[0],dp[1])
