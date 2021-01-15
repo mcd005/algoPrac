@@ -9,7 +9,7 @@ We then iterate though the array
 If the encountered element is bigger then we have a new max in the subarray
     We calculate the profit and if it is bigger than the max profit seen so far it is stored
 If the encountered element is smaller then we have a new local minimum and thus are examining a new subarray
-    Previous local maxima are forgotten because of the chronolgical contraints placed by the question (i.e. indexs represent days where 0 is a day before 1)
+    Previous local maxima are forgotten because of the chronolgical contraints placed by the question (i.e. indexes represent days where 0 is a day before 1)
 
 Time complexity     O(n)
 Space complexity    O(1)
