@@ -2,7 +2,6 @@
 .vscode/
 *.txt
 !ToDo.txt
-/Graphs
 /Exclude
 
 #DP
@@ -13,3 +12,6 @@ candies.cpp
 reachingPoints.cpp
 numPairsSumPowTwo.py
 permute.cpp
+
+#Graphs
+maxRegion.*
