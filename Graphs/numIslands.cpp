@@ -1,7 +1,14 @@
+// https://leetcode.com/problems/number-of-islands/
+
+// Version 1 - iterative BFS
 // Iterate over the grid
 // When you encounter an unmarked part of the island do a BFS
-//  Add that coord to a q
-//  Iterating through the q if a coord correpsonds to a 1 add it's neighbours to the q
+//      Add that coord to a q
+//      Iterating through the q if a coord correpsonds to a 1 add it's neighbours to the q
+// And so on until the q is empty and all the elements have been marked "#"
+
+// Time complexity       O(n * m)
+// Space complexity       O(n * m)
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {

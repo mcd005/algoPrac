@@ -1,3 +1,8 @@
+# https://leetcode.com/problems/number-of-islands/
+
+# Version 1 - recursive DFS
+# Time complexity       O(n * m)
+# Space complexity       O(n * m)
 def dfs(grid, r, c, rMax, cMax):
     if not (0 <= r < rMax) or not (0 <= c < cMax):
         return

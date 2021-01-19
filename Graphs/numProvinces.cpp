@@ -1,8 +1,5 @@
 // https://leetcode.com/problems/number-of-provinces/
 
-// Version X and X++ - iterative
-// Do a DFS with a stack or BFS with a queue for a super speedy algo
-
 // Version 1 - depth first search
 // Time complexity      O(n * n)    where n is the number of cities
 // Space complexity     O(n)        n calls on the stack at most
@@ -50,3 +47,6 @@ public:
         }
     }
 };
+
+// Version X and X++ - iterative
+// Do a DFS with a stack or BFS with a queue for a super speedy algo
