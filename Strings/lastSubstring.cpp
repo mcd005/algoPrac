@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/last-substring-in-lexicographical-order/
+
 //Version 2
 // For shorthand "max substring" is last substring in lexicographical order, and "bigger" means further on in the lexicographical order
 // "first" is the pointer to the index that is the start of our current max substring

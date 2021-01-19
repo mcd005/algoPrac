@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/string-compression/
+
 // Version 3 - like Version 1 but only uses constant space
 // Instead of appending to the end of the orignal array we overwrite the start
 // This form of the algorithm (single pointer with overwrites) 

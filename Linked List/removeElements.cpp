@@ -1,7 +1,5 @@
 // https://leetcode.com/problems/remove-linked-list-elements/
 
-
-
 // Version 2 - recursive
 // Imagine the nodes are a line of people who are told anyone with the value is val has to leave the line.
 

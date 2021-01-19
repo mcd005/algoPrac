@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/string-compression/
+
 # Version 1 - two pointers.
 # Time complexity       O(n)
 # Space complexity      O(1)
