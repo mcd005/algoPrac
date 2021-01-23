@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/first-unique-character-in-a-string/
 
 // alpha is used to keep track of the lowest index each letter occurs
 // If the same letter is encountered twice mark it's lowest index as 
