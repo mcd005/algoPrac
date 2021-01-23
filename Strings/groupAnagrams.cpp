@@ -75,4 +75,5 @@ public:
 // Then a string would be the product of all the primes the chars mapped to
 // This has issues with integer overflow though (unless we use some modulo to keep it bounded)
 // Could maybe create hashes from counts instead?
-//Eg: cat becomes 1a1c1t. caabbt becomes 2a2b1c1t
+// Eg: cat becomes 1a1c1t. caabbt becomes 2a2b1c1t
+// However, despite these being theoretically faster I iamgine in ms for this input size they are slower
