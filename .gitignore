@@ -16,5 +16,5 @@ numPairsSumPowTwo.py
 permute.cpp
 
 #Strings
-# Strings/minRemoveValidParentheses.cpp
-# Strings/wildcardMatch.cpp
+Strings/minRemoveValidParentheses.cpp
+Strings/wildcardMatch.cpp
