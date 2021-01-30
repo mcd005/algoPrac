@@ -1,68 +1,17 @@
 # https://leetcode.com/problems/word-search-ii
 
+# Each solution uses a either recursive DFS or iterative BFS
+# and some form a Trie (implemented literally or using just a hashmap)
 
-# Create a Trie and add all the words to it
-# Walk through the array
-# For each letter we need three queues:
-#     One for nodes in which the letter could be a child
-#     One for coordinates of the letter
-#     One for sets of coordinates of the letters before it that are considered part of the word (initially an empty)
-# While these qs exist (they should all be the same length):
-#     Deque the front of each.
-#     Iterating through the neighbours, if the neighbour hasn't already been used in the word
-#     and could be the next letter in the word
-#         Enqueue:
-#             The node in which the neighbouring letter could be a child
-#             The coordinates of the neighbouring letter
-#             The set of coordinates of letters that could precede the neighbouring letter in the word
-#         Then ask if the current letters node.val exists.
-#             If it does then add to the output the word in "words" at index = node.val
-#             Set node.val to None so that the word won't be added again if it is found again
+# Time complexity      O(wk + (nm)^2)
+# Space complexity     O(wk + nm)
 
-# Unfortunately this function is quite memory intensive because:
-#   It stores a set of all the preceding letters for each of the letters in the queue
-#   so worst case space complexity of O(n^2)
-
-# Included below, a recursive solution. I originally attempted a recursive solution
-# but couldn't work out an reliable way of keeping track of "used" across call stacks.
-# so borrowed a trick I found in some of the LC discussions to mark letters as "#"
-# while they were part of a prospective path
-
-# And below that a recursive version that uses a HashMap for a trie, found in LC submissions
-
-# Time complexity O(wk + (nm)^2)
 # for adding w words of length k to a trie
 # and iterating through an n*m board
-# where the recursive function calls could be made on all nm elements before a base case is reached (in worst case)
+# where the recursive function calls could be made on all nm elements before a base case is reached (in worst case).
+# The max size of the callstack will be nm
 
-
-# ~~~~Iteratrive BFS Solution~~~~
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.val = None
-
-def addToTrie(word, node, num):
-    for char in word:
-        if char not in node.children:
-            node.children[char] = TrieNode()
-        node = node.children[char]
-    node.val = num
-
-# Helper functions for debugging
-# def findInTrie(word, node):
-#     for char in word:
-#         if char not in node.children:
-#             return None
-#         node = node.children[char]
-#     return node.val
-
-# def printTrieWord(word, node):
-#     for char in word:
-#         print(node.children, node.val)
-#         node = node.children[char]
-
-# ~~~~Recursive DFS solution~~~~
+# Version 1 - Recursive DFS solution with Trie class
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -85,6 +34,8 @@ def dfs(board, node, i, j, path, otpt):
     node = node.children.get(temp)
     if not node:
         return
+    # Don't need to use extra memory to record visited coords
+    # instead mark visited with a #
     board[i][j] = "#"
     dfs(board, node, i + 1, j, path + temp, otpt)
     dfs(board, node, i, j + 1, path + temp, otpt)
@@ -106,11 +57,44 @@ class Solution:
         return output
 
 
-# ~~~~Solution that uses a hashmap for a trie~~~~
+
+# Version 2 - DFS with hashmap for trie
+def findWords(self, board, words):
+    trie = {}
+    for w in words:
+        t = trie
+        for c in w:
+            if c not in t:
+                t[c] = {}
+            t = t[c]
+        t['#'] = '#' # terminating char
+    self.res = set()
+    self.used = [[False] * len(board[0]) for _ in range(len(board))]
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            self.find(board, i, j, trie, '')
+    return list(self.res)
+
+
+def find(self, board, i, j, trie, pre):
+    if '#' in trie:
+        self.res.add(pre)
+    if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
+        return
+    if not self.used[i][j] and board[i][j] in trie:
+        self.used[i][j] = True
+        self.find(board, i + 1, j, trie[board[i][j]], pre + board[i][j])
+        self.find(board, i, j + 1, trie[board[i][j]], pre + board[i][j])
+        self.find(board, i - 1, j, trie[board[i][j]], pre + board[i][j])
+        self.find(board, i, j - 1, trie[board[i][j]], pre + board[i][j])
+        self.used[i][j] = False
+
+
+
+# Version 3 - Recursive DFS, a hashmap for a trie and backtracking
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        # build a trie using hashtable
-        word_key = '$'
+        word_key = '$' 
         trie = {}
         for word in words:
             node = trie
@@ -146,49 +130,33 @@ class Solution:
                     backtrack(r, c, trie)
         return matchWords
 
+# Version 1 - Iterative BFS Solution
+# Unfortunately this function is quite memory intensive because:
+#   It stores a set of all the preceding letters for each of the letters in the queue
+#   so worst case space complexity of O(n^2)
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.val = None
 
-# ~~~~Second soution that uses hashmap for trie and then recursive DFS similar to the second solution~~~~
-def findWords(self, board, words):
-    # make trie
-    trie = {}
-    for w in words:
-        t = trie
-        for c in w:
-            if c not in t:
-                t[c] = {}
-            t = t[c]
-        t['#'] = '#'
-    self.res = set()
-    self.used = [[False] * len(board[0]) for _ in range(len(board))]
-    for i in range(len(board)):
-        for j in range(len(board[0])):
-            self.find(board, i, j, trie, '')
-    return list(self.res)
-
-
-def find(self, board, i, j, trie, pre):
-    if '#' in trie:
-        self.res.add(pre)
-    if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
-        return
-    if not self.used[i][j] and board[i][j] in trie:
-        self.used[i][j] = True
-        self.find(board, i + 1, j, trie[board[i][j]], pre + board[i][j])
-        self.find(board, i, j + 1, trie[board[i][j]], pre + board[i][j])
-        self.find(board, i - 1, j, trie[board[i][j]], pre + board[i][j])
-        self.find(board, i, j - 1, trie[board[i][j]], pre + board[i][j])
-        self.used[i][j] = False
+def addToTrie(word, node, num):
+    for char in word:
+        if char not in node.children:
+            node.children[char] = TrieNode()
+        node = node.children[char]
+    node.val = num
 
 # Helper function to return tuples which are the coords of the neighbours of a letter
 def neighbours(r, c, maxR, maxC):
     return [tup for tup in [(r, c + 1), (r - 1, c), (r, c - 1), (r + 1, c)] if (0 <= tup[0] < maxR) and (0 <= tup[1] < maxC)]
-    
+
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         output = []
         if not board or not words:
             return output
         
+        # Create a Trie and add all the words to it
         root = TrieNode()
         for wordNum, word in enumerate(words):
             addToTrie(word, root, wordNum)
@@ -200,8 +168,12 @@ class Solution:
             for col in range(cols):
                 letter = board[row][col]
                 if letter in root.children:
-                    nodeQ = [root.children[letter]]
+                    #For each letter we need three queues:
+                    #One for nodes in which the letter could be a child
+                    nodeQ = [root.children[letter]] 
+                    # One for coordinates of the letter
                     coordQ = [(row, col)]
+                    # One for sets of coordinates of the letters before it that are considered part of the word (initially an empty)
                     usedQ = [{(row, col)}]
                     while nodeQ:
                         curNode = nodeQ.pop(0)
@@ -209,14 +181,30 @@ class Solution:
                         curUsed = usedQ.pop(0)
                         for nb in neighbours(curCoord[0],curCoord[1], rows, cols):
                             if (nb[0], nb[1]) not in curUsed and board[nb[0]][nb[1]] in curNode.children:
-                                    nodeQ.append(curNode.children[board[nb[0]][nb[1]]])
-                                    coordQ.append((nb[0], nb[1]))
-                                    nextUsed = curUsed | {(nb[0], nb[1])}
+                                    nodeQ.append(curNode.children[board[nb[0]][nb[1]]]) # The node in which the neighbouring letter could be a child
+                                    coordQ.append((nb[0], nb[1])) # The coordinates of the neighbouring letter
+                                    nextUsed = curUsed | {(nb[0], nb[1])} # The set of coordinates of letters that could precede the neighbouring letter in the word
                                     usedQ.append(nextUsed)
-                        if curNode.val != None:
+                        # If the current letters node.val exists.
+                        if curNode.val != None: 
+                            # If it does then add to the output the word in "words" at index = node.val
+                            # Set node.val to None so that the word won't be added again if it is found again
                             output.append(words[curNode.val])
                             curNode.val = None
                             
         return output
 
 
+# Helper functions for debugging
+
+# def findInTrie(word, node):
+#     for char in word:
+#         if char not in node.children:
+#             return None
+#         node = node.children[char]
+#     return node.val
+
+# def printTrieWord(word, node):
+#     for char in word:
+#         print(node.children, node.val)
+#         node = node.children[char]

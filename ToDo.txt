@@ -23,7 +23,7 @@ To Explain
 	Count Negatives
 	Jumpoing on clouds
 	NumberSolitaire
-	GRoup the people
+	Group the people
 	Find words (but the hashmap one with backtracking)
 	Roman to Int
 	Display Table

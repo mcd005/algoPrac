@@ -8,9 +8,13 @@
 cashRegister.java
 candies.cpp
 
+#Graphs
+maxRegion.*
+
 #Maths
 numPairsSumPowTwo.py
 permute.cpp
 
-#Graphs
-maxRegion.*
+#Strings
+# Strings/minRemoveValidParentheses.cpp
+# Strings/wildcardMatch.cpp
