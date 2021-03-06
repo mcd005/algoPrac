@@ -1,3 +1,9 @@
+// https://leetcode.com/problems/design-tic-tac-toe/
+// Version 1 - O(1) checking 
+// by keeping track of cols and rows
+// Time complexity      O(m)
+// Space complexity     O(n)
+// where m is number of moves
 class TicTacToe {
 public:
     TicTacToe(int n) : sz(n) {
