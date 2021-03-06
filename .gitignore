@@ -4,6 +4,10 @@
 !ToDo.txt
 /Exclude
 
+#Design
+Design/HashMap.cpp
+Design/lruCache.cpp
+
 #DP
 cashRegister.java
 candies.cpp
