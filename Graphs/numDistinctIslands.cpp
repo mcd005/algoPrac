@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/number-of-distinct-islands
-// Version 1 - DFS using an unordered set
+// Version 1 - DFS using an unordered set of strings
 // to keep track of shapes
+// Time complexity      O(n*m)
+// Space complexity     O(n*m)
+// where n and m are the length of the sides of the grid
 class Solution {
 public:
     int n = 0;
