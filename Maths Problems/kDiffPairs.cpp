@@ -10,7 +10,7 @@ class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
         
-        // Presorting the array and using us two pointers allows us to check for all possible diffs in linear time
+        // Presorting the array and using two pointers allows us to check for all possible diffs in linear time
         sort(nums.begin(), nums.end());
         
         int l = 0, r = 1;
