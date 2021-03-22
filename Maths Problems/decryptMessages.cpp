@@ -42,7 +42,6 @@ string decrypt( const string& word )
     int prevStepTwo = 1;
     for (int i = 0; i < n; ++i)
     {
-      int cur = word[i];
       int dec = word[i] - prevStepTwo;
       while (dec < 97) dec += 26;
       decrypted += dec;
