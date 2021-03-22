@@ -11,6 +11,9 @@ public:
         int n = nums.size();
         vector<int> prefixProd(n , 1);
 
+        //if we wanted to account for n < 2
+        if (n == 0 || n == 1) return {}; 
+
         for(int i = 0; i + 1 < n; ++i)
         {
           prefixProd[i + 1] = prefixProd[i] * nums[i];
