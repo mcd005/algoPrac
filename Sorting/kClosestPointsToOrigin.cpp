@@ -44,7 +44,7 @@ public:
 };
 
 // Version 2 - A more sophisticated partial sort
-// Time complexirty     O(n) depends on implementation of nth_element
+// Time complexity    O(nlogk) worst case but O(n) average (depends on implementation of nth_element)
 // Space complexity     O(n)
 class Solution {
 public:
@@ -54,23 +54,16 @@ public:
             return ((a[0] * a[0]) + (a[1] * a[1])) < ((b[1] * b[1]) + (b[0] * b[0]));
         };
         
-
+        // Tnth_element changes the array such that. Lets call points.begin() + k, kth
+        //      The element pointed at by kth is changed to whatever element would occur in that position if [first, last) 
+        //      were sorted by the distances calculated by cmp
+        //      All of the elements before this new kth element have distances less than or equal to the elements after the new kth element.
         nth_element(
             points.begin(),
-            std::next(points.begin(), K), // This an iterator to the Kth element after begin. Lets call this nth
+            points.begin() + K,
             points.end(),
             cmp);
-        // So the above changes the array such that
-        //      The element pointed at by nth is changed to whatever element would occur in that position if [first, last) 
-        //      were sorted by the distances calculated by cmp
-        //      All of the elements before this new nth element have distances less than or equal to the elements after the new nth element.
-        
-        vector<vector<int>> result(K);
-        std::copy(
-            points.begin(),
-            std::next(points.begin(), K),
-            result.begin()
-        );
-        return result;
+
+        return vector<vector<int>>(points.begin(), points.begin() + K);
     }
 };
