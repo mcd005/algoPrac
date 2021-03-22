@@ -34,3 +34,15 @@ def solution(S):
         return 1
     else:
         return 0
+
+# https://leetcode.com/problems/valid-parentheses/
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        closed = {')': '(', '}': '{', ']': '['}
+        for p in s:
+            if stack and stack[-1] == closed.get(p):
+                stack.pop(-1)
+            else:
+                stack.append(p)
+        return not stack
