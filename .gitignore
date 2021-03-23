@@ -18,7 +18,9 @@ maxRegion.*
 #Maths
 numPairsSumPowTwo.py
 permute.cpp
+eliminationGame.cpp
 
 #Strings
 Strings/minRemoveValidParentheses.cpp
 Strings/wildcardMatch.cpp
+Strings/fullJustify.cpp
