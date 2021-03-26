@@ -88,3 +88,45 @@ public:
         return true;
     }
 };
+
+// Version 3 - An adapted version for situations
+// where the input array is a string not a vector
+#include<bitset>
+class Solution {
+public:
+    bool validUtf8(vector<int>& data) {
+        string newInput = "";
+        for (auto d: data){
+            string nextByte = bitset<8>(d & 0b11111111).to_string();
+            //cout << nextByte << endl;
+            newInput += nextByte;
+        }
+        
+        return helper(newInput);
+    }
+    
+    bool helper(string word){
+        int n = word.size();
+        if (n == 0 || n % 8 != 0) return false;
+
+        int bytePtr = 0, bytePtrFast = 0;
+        while (bytePtr < n)
+        {
+            int bitPtr = 0;
+            while (word[bytePtr + bitPtr] == '1' && bitPtr < 5) ++bitPtr;
+            if (bitPtr == 1 || bitPtr == 5) return false;
+            int continuationBytesExpected = bitPtr - 1;
+
+            while (bytePtrFast < bytePtr + continuationBytesExpected * 8)
+            {
+                bytePtrFast += 8;
+                if (bytePtrFast >= n || 
+                    word[bytePtrFast] != '1' || 
+                    word[bytePtrFast + 1] != '0') return false;
+            }
+            bytePtrFast += 8;
+            bytePtr = bytePtrFast;
+        }
+        return true;
+    }
+};
