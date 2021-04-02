@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/candy/
+
 # Create an array dp so we can remember how much candy we have given to each student
 # We iterate forward through the students
 # making sure if a student sat behind the current one has a rating greater than the current student
@@ -24,6 +26,7 @@
 # However I had trouble implementing this based on intersecting ascending and descending sequences
 # e.g. with the algorith below 1 6 10 8 7 3 2 -> 1 2 3 4 3 2 1
 #                             when it should be  1 2 5 4 3 2 1
+# TODO implement such a solution
 
 def candies(n, arr):
     if n == 0:
@@ -40,49 +43,3 @@ def candies(n, arr):
             dp[i - 1] = dp[i] + 1
 
     return sum(dp)
-
-# class Solution:
-#     def candy(self, ratings: List[int]) -> int:
-#         n = len(ratings)
-#         if n == 1:
-#             return 1
-#
-#         # Helper function to identify if a sequence is ascendeing, descending or equal
-#         def whichType(idx, arr):
-#             if arr[idx] > arr[idx - 1]:
-#                 return 1  # ascending
-#             elif arr[idx] < arr[idx - 1]:
-#                 return 2  # descending
-#             else:
-#                 return 3  # equal
-#
-#         def bank(typ, rn):
-#             if typ == 3:
-#                 return run
-#             else:
-#                 return int((run * (run + 1)) / 2)
-#
-#         candies = 0
-#         preType = 0  # New (i.e. the start of ratings or when candies have just been banked)
-#         run = 1
-#
-#         for i in range(1, n):
-#             runType = whichType(i, ratings)
-#
-#             if (preType == 0) or (preType == runType):
-#                 run += 1
-#                 preType = runType
-#             else:
-#                 candies += bank(preType, run)
-#
-#                 if ((runType == 1) or (preType == 3 and runType == 2)):
-#                     candies -= 1
-#                     run = 2
-#                 else:
-#                     run = 1
-#
-#                 preType = 0
-#
-#         candies += bank(preType, run)
-#
-#         return candies
