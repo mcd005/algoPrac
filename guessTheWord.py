@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/guess-the-word/
+
 #  Work out what the count is for each letter in each position
 #  Then go through and calculate a similiarity score for each word
 #  Keep track of the least similiar word
@@ -8,7 +9,9 @@
 #       If they don't you discard them
 #  As you are discarding update the counts
 #  Repeat until you've elimated all possible words except the secret
-# Time complexity       O(n*m) where n is the number of words in wordlist and 
+
+# Time complexity       O(n*m) where n is the number of words in wordlist and m in the lenght of the words
+# Space complexity      O(n)
 class Solution:
     def findSecretWord(self, wordlist: List[str], master: 'Master') -> None:
         arr_of_counters = self.get_count(wordlist)
@@ -47,12 +50,66 @@ class Solution:
         for i in range(n):
             current_word = wordlist[i]
             current_num_matches = 0
-            old_arr_of_counters = arr_of_counters.copy()
             for j in range(m):
                 if current_word[j] == reference_word[j]:
                     current_num_matches += 1
                 arr_of_counters[j][current_word[j]] -= 1
             if current_num_matches == target_num_matches:
                 new_word_list.append(current_word)
-                arr_of_counters = old_arr_of_counters
+            else:
+                self.remove_word_from_arr_of_counters(current_word, arr_of_counters)
+
         return new_word_list
+
+    def remove_word_from_arr_of_counters(self, word, arr_of_counters):
+        for i, char in enumerate(word):
+            arr_of_counters[i][char] -= 1
+
+# Version 2 - A slightly more concise way of implementing the aprroach from V1
+class Solution:
+    def findSecretWord(self, wordlist: List[str], master: 'Master') -> None:
+        # keep track of candidates
+        candidates = {word: 0 for word in wordlist}
+        
+        # update scores of words related to our guess
+        def update_score(word, guess, guess_score):
+            for i in range(len(word)):
+                if word[i] == guess[i]:
+                    if guess_score == 0:
+                        del candidates[word]
+                        return
+                    candidates[word] += 1
+        
+        # search for candidate with the highest score
+        attempts = 0
+        while len(candidates) > 0 and attempts < 10:
+            _, guess = min([(-score, word) for word, score in candidates.items()])
+            guess_score = master.guess(guess)
+            if guess_score == len(guess):
+                return
+            del candidates[guess]
+            for candidate in list(candidates.keys()):
+                update_score(candidate, guess, guess_score)
+            attempts += 1
+
+# Version 3 - Apply no heuristic to which guess is next. Just randomly pick a word 
+# and eliminate using matching
+class Solution:
+    def findSecretWord(self, wordlist: List[str], master: 'Master') -> None:
+        
+        def match(word, guessword):
+            ctr = 0
+            for i in range(6):
+                if word[i] == guessword[i]:
+                    ctr += 1
+            return ctr
+            
+        i = 0
+        while i < 10:
+            guessword = random.choice(wordlist)
+            value = master.guess(guessword)
+            if value != 6:
+                wordlist = [word for word in wordlist if match(word, guessword) == value]
+            else:
+                break
+            i += 1
