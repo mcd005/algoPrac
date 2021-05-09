@@ -7,6 +7,9 @@
  */
 
 // Version 1 - Use a map that looks like {start: end}
+// Time complexity      O(nlogm)
+// Space complexity     O(m)
+// For a n queries on a calendar of m booked events
 class MyCalendar
 {
 public:
