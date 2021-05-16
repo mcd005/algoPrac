@@ -1,6 +1,13 @@
 // Version 2 - Use two pointers to iterate over rows and cols crushing candies
 // Use bitmasking to mark candies to be crushed
 // Use two pointers again to actually crush the candies
+<<<<<<< HEAD
+=======
+
+// For all algos:
+// Time complexity      O(n*m)
+// Space complexity     O(1)
+>>>>>>> c78b7cb... There's often a simpler way. Iterative over recursive. Abs over bitmasking. Direct look up over two pointer
 class Solution
 {
 public:
@@ -251,6 +258,7 @@ private:
         return isCrushableCol;
     }
 };
+<<<<<<< HEAD
 
 /* 
 Need to first establish which candies are to be crushed
@@ -288,3 +296,5 @@ When reading for original values bitmask OxFFF
 
 When it comes to deletion, iterate over and if bitmased 0x1000 = 0x1000 then treat as zero
 */
+=======
+>>>>>>> c78b7cb... There's often a simpler way. Iterative over recursive. Abs over bitmasking. Direct look up over two pointer
