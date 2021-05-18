@@ -1,13 +1,10 @@
 // Version 2 - Use two pointers to iterate over rows and cols crushing candies
 // Use bitmasking to mark candies to be crushed
 // Use two pointers again to actually crush the candies
-<<<<<<< HEAD
-=======
 
 // For all algos:
 // Time complexity      O(n*m)
 // Space complexity     O(1)
->>>>>>> c78b7cb... There's often a simpler way. Iterative over recursive. Abs over bitmasking. Direct look up over two pointer
 class Solution
 {
 public:
@@ -258,43 +255,3 @@ private:
         return isCrushableCol;
     }
 };
-<<<<<<< HEAD
-
-/* 
-Need to first establish which candies are to be crushed
-    Probably some kind of DFS, where you see how many are adjacent
-    ans set current to 0 if adjacent gte 3
-    Will also need to check non-zero
-    Was going to do two pointers but if you delete some while it may mean other candies are not crused at the right time    
-
-Then need to iterate over the board and move candies to be dropped
-    Two pointer bottom to top would be better
-    Both pointers start at the bottom, a write head and a fast read head
-    When read points to non-zero, put the value at read at write and iterate both pointers
-    If read is at a zero, iterate until it's at a non zero
-    If read is at the end, then iterate write, writing zeros
-
-And repeat until there are no more candies to drop or crush
-    Set a numCrushed and numDroppe??
-
-See how abstracting it/refactoring affects performance
-
-Is crushable row
-Base case is out of bounds or different char
-Return adjcent greater than 3
-When you call vertical on a horizontal Nim adjacent should be zero
-What happens if you encounter a massive block
-If you start zeroing out will it cut off some sections
-
-
-Start with both pointers at start of row
-Increment the right pointer, whilst the two values are the same
-When the two values are not the same check the number of elements between the two pointers
-If it's greater than 3 you can mark all the elements with a bit
-Since all elements on the board are 2000 or less, you can mark elements for deletion by adding 0x1000
-When reading for original values bitmask OxFFF
-
-When it comes to deletion, iterate over and if bitmased 0x1000 = 0x1000 then treat as zero
-*/
-=======
->>>>>>> c78b7cb... There's often a simpler way. Iterative over recursive. Abs over bitmasking. Direct look up over two pointer
