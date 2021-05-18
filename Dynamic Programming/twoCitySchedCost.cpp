@@ -1,6 +1,34 @@
 // https://leetcode.com/problems/two-city-scheduling/submissions/
 
-// Version 1 - DP tabularisation using only one row
+// Version 3 - Based on a soltion found on leetcode
+// We sort costs by the difference between bCosti - aCosti
+// This allows see what globally (not greedily) the best choice is to minimise cost
+// After costs is sorted, for any given pair:
+//      costs[0] represents the biggest cost saving we could get by choosing element A
+//      costs[n - 1] represents the biggest cost saving we could get by choosing element B
+// Time complexity      O(nlogn)
+// Space complexity     O(1)
+class Solution
+{
+public:
+    int twoCitySchedCost(vector<vector<int>> &costs)
+    {
+        sort(costs.begin(), costs.end(), [](vector<int> &a, vector<int> &b) { return a[1] - a[0] > b[1] - b[0]; });
+        int min = 0;
+        for (int i = 0; i < costs.size(); ++i)
+        {
+            if (i < costs.size() / 2)
+                min += costs[i][0];
+            else
+                min += costs[i][1];
+            // std::cout << costs[i][0] << " " << costs[i][1] << "\n";
+        }
+
+        return min;
+    }
+};
+
+// Version 2 - DP tabularisation using only one row
 // Time complexity      O(n^2)
 // Space complexity      O(n)
 class Solution
