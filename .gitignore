@@ -3,6 +3,7 @@
 *.txt
 !ToDo.txt
 /Exclude
+scribbles.py
 
 #Design
 Design/HashMap.cpp
