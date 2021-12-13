@@ -8,9 +8,14 @@ public:
         pcToWhichNetwork.resize(n);
         std::iota(pcToWhichNetwork.begin(), pcToWhichNetwork.end(), 0);
 
-        for (auto& conn : connections)
+        int i = 0;
+        bool steadyState = false;
+        while(!steadyState)
         {
-            _union(conn[0], conn[1]);
+            if (i == 0) steadyState = true;
+            steadyState = _union(connections[i][0], connections[i][1]);
+            ++i;
+            i %= n;
         }
 
         return std::set<int>(pcToWhichNetwork.begin(), pcToWhichNetwork.end()).size() - 1;
@@ -18,9 +23,12 @@ public:
 private:
     std::vector<int> pcToWhichNetwork;
 
-    void _union(int x, int y)
+    bool _union(int x, int y)
     {
-        pcToWhichNetwork[find(y)] = find(x);
+        int prevRoot = pcToWhichNetwork[y];
+        int newRoot = find(x);
+        pcToWhichNetwork[find(y)] = newRoot;
+        return prevRoot == newRoot;
     }
 
     int find(int a)
