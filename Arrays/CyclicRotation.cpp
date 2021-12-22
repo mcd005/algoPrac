@@ -11,9 +11,7 @@ Space complexity        O(n)
 #include <vector>
 
 vector<int> solution(vector<int> &A, int K) {
-	if (A.size() == 0{
-		return A;
-	}
+	if (A.size() == 0) return A; 
     vector<int> v1;
     vector<int> v2;
     
