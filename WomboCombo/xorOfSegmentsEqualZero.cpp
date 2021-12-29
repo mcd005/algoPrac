@@ -1,3 +1,6 @@
+// Version 1 - DP
+// Time complexity      O(n + 1024kn)
+// Space complexity     O(1024k + 1024kn + k)
 class Solution
 {
 public:

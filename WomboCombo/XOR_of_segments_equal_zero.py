@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/make-the-xor-of-all-segments-equal-to-zero/
 # Version 3 - Currently not working DP like my C++ 
 class Solution:
     def minChanges(self, nums: List[int], k: int) -> int:
