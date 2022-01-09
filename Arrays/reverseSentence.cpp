@@ -53,6 +53,7 @@ vector<char> reverseWords( const vector<char>& arr )
   return result;
 }
 
+// This is here in case we can't use built in reverse
 void customReverse(vector<char>& array, int n)
 {
     while (i < n - 1 - i)
