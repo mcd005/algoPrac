@@ -13,7 +13,7 @@ from collections import Counter
 import heapq
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        word_count = [(count, word[::-1]) for word, count in Counter(words).items()]
+        word_count = [(-count, word) for word, count in Counter(words).items()]
         word_heap = word_count[:k]
         heapq.heapify(word_heap)
 
@@ -21,8 +21,8 @@ class Solution:
         for i in range(k + 1, m):
             heapq.heappushpop(word_heap, word_count[i])
 
-        word_heap.sort(reversed=True)
-        return [word[::-1] for _, word in word_heap]
+        word_heap.sort()
+        return [word for _, word in word_heap]
 
 # Version 3 - Partial sort, currently not working
 from collections import Counter

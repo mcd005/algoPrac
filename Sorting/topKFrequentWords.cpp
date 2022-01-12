@@ -27,3 +27,27 @@ public:
         return result;
     }
 };
+
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        unordered_map<string, int> count;
+        for (string& w : words) {
+            count[w]++;
+        }
+        vector<pair<string, int>> freq;
+        for (auto c : count) {
+            freq.push_back(make_pair(c.first, c.second));
+        }
+        partial_sort(freq.begin(), freq.begin()+k, freq.end(), [] (auto& l, auto& r) {
+            if (l.second == r.second) {
+                return l.first < r.first;
+            }
+            return l.second > r.second;});
+        vector<string> ans;
+        for (int i = 0; i < k; i++) {
+            ans.push_back(freq[i].first);
+        }
+        return ans;
+    }
+};
