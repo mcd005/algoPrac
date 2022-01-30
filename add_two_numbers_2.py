@@ -12,11 +12,11 @@ class Solution:
         m = self.get_linked_list_len(l2) # 3
 
         if n > m:
-            dummy = Node(val=0, next=l1)
+            dummy = ListNode(val=0, next=l1)
             long_ptr = self.advance_ptr_x_times(l1, n - m)
             short_ptr = l2
         else:
-            dummy = Node(val=0, next=l2)
+            dummy = ListNode(val=0, next=l2)
             long_ptr = self.advance_ptr_x_times(l2, m - n)
             short_ptr = l1
 
@@ -31,7 +31,7 @@ class Solution:
             if read_ptr and ((read_ptr == write_ptr) or read_ptr.val == 9):
                 read_ptr = read_ptr.next
             elif write_ptr != read_ptr:
-                if read_ptr.val > 9:
+                if read_ptr and read_ptr.val > 9:
                     write_ptr.val = (write_ptr.val + 1) % 10
                 write_ptr = write_ptr.next
 
@@ -58,15 +58,13 @@ class Solution:
 
 
 '''
-
-
 Most straightfoward solution would be to reverse both lists then add them as you would on paper (starting from LSD)
 O(n) time and space if recursive reversal. O(1) space if iterative reversal
 
 We could put both nodes in stacks and then pop off the stack and add and carry as we go
 O(n) time and space
 
-Is there are O(1) space solution that doesn't involve reversing?
+Are there O(1) space solutions that doesn't involve reversing?
     Count the lenghts of both lists
     If one of the lists is shorter, advance the pointer on the longer list so it's in line with the shorter on 
     What to do if you have carries?
@@ -77,7 +75,7 @@ Is there are O(1) space solution that doesn't involve reversing?
         When we do a CLA we can mark which digits propagate or generate carries
             Will propagate if 9 or more
                 Can a carry ever be 2?
-                    No max a single digit can be is one
+                    No max a single digit can be is 9
                     So max two can be is 18
                     So only 1 will ever carry
             Will generate if 10 or more
@@ -98,16 +96,8 @@ Algo
 
 Need to try with a zero given for one of the inputs
 
-1 9 9 9 3 12
-s
-      f
-1 0 0 0 3 
-
-9 9 9 9 9 9
-9 9 9 9 9 9
-
-0 18 18 18 18 18 18
-1  9  9  9  9  9  8
-How about you assume the lists are the same lenght then add them digit wise
-When you get to the end of one list
+### Key Lessons ###
+Explicity write down space and time complexities so you can better compare algos
+Good job using the mem given to you to keep it O(1)
+Good job boiling down the logic for propagating and generating carries
 '''
